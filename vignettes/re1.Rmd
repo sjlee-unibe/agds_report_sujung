@@ -334,8 +334,8 @@ print(conf_matrix_bor)
 ```
 
 ### Answer for 5.2 - Comparison of two models
-The model with the reduced set ('rf_bor') has a higher accuracy (0.78) compared to the model with all covariates ('rf_basic') with an accuracy of 0.76. 
-The Kappa statistic for the model with the reduced set is also higher (0.5228) compared to the model with all covariates (0.4794), indicating a higher level of agreement beyond chance.
+The model with the reduced set ('rf_bor') has a higher accuracy compared to the model with all covariates ('rf_basic') with an accuracy of 0.76. 
+The Kappa statistic for the model with the reduced set is also higher compared to the model with all covariates, indicating a higher level of agreement beyond chance.
 Sensitivity, specificity, and balanced accuracy are all higher for the model with the reduced set, suggesting better performance in correctly classifying both positive and negative instances.
 
 ### Answer for 5.2 - Consideration of OOB prediction error for the model choice
@@ -346,7 +346,8 @@ oob_err_bor <- rf_bor$prediction.error
 cat("OOB prediction error from basic model:", oob_err_basic,
     ", OOB prediction error from Boruta model:", oob_err_bor)
 ```
-A lower OOB error generally indicates better generalization to unseen data. In this comparison, the model with the reduced set of predictors (rf_bor) exhibits a lower OOB error (0.1438674) compared to the model with all covariates (rf_basic, 0.1503242). Therefore, considering both the performance metrics on the test set and the OOB error, the model with the reduced set informed by Boruta (rf_bor) is a preferred choice.
+
+A lower OOB error generally indicates better generalization to unseen data. In this comparison, the model with the reduced set of predictors (rf_bor) exhibits a lower OOB error compared to the model with all covariates (rf_basic). Therefore, considering both the performance metrics on the test set and the OOB error, the model with the reduced set informed by Boruta (rf_bor) is a preferred choice.
 
 ```{r}
 # Save relevant data for model testing in the next chapter.
@@ -441,9 +442,9 @@ print(conf_matrix_best)
 ### Answer for 5.3
 Through hyperparameter optimization with mtry set to 6 and min.node.size held constant at 10, the optimized model (mod_best) exhibits subtle but consistent improvements over the default model (rf_basic) when evaluated on the test set.
 
-Mod_best demonstrates a slightly higher accuracy (0.775) and enhanced sensitivity (0.8231) compared to rf_basic (accuracy: 0.76, sensitivity: 0.8000). In terms of specificity, mod_best also shows a marginal improvement with a value of 0.7143, whereas rf_basic has a specificity of 0.6857. This suggests comparable proficiency in correctly identifying negative instances, with mod_best showcasing a slight edge.
+Mod_best demonstrates a slightly higher accuracy and enhanced sensitivity compared to rf_basic. In terms of specificity, mod_best also shows a marginal improvement with a higher value of specificity from rf_basic. This suggests comparable proficiency in correctly identifying negative instances, with mod_best showcasing a slight edge.
 
-The Kappa statistic further supports the enhanced performance of mod_best, recording a value of 0.5228 compared to rf_basic's 0.4794. This indicates that mod_best achieves a higher level of generalization to unseen data. Additionally, mod_best achieves a slightly higher balanced accuracy of 0.7648, reinforcing the marginal but consistent improvement in the optimized model.
+The Kappa statistic further supports the enhanced performance of mod_best compared to rf_basic's. This indicates that mod_best achieves a higher level of generalization to unseen data. Additionally, mod_best achieves a slightly higher balanced accuracy, reinforcing the marginal but consistent improvement in the optimized model.
 
 In summary, based on these metrics, mod_best demonstrates a marginal but consistent enhancement over rf_basic in generalizing to unseen data.
 
