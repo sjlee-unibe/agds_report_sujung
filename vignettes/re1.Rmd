@@ -14,8 +14,8 @@ library(renv); library(here); library(tidyterra); library(visdat); library(range
 library(caret); library(Boruta); library(tibble); library(dplyr); library(pROC)
 ```
 
-# 1. Data preparation
-## 1.1. Load data
+## 1. Data preparation
+### 1.1. Load data
 ### 1.1.1. Soil samples
 ```{r}
 # Load soil data from sampling locations
